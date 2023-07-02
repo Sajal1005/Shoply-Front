@@ -3,7 +3,7 @@ import Button from "@/components/Button";
 import CartIcon from "@/components/icons/CartIcon";
 import Link from "next/link";
 import {useContext} from "react";
-// import {CartContext} from "@/components/CartContext";
+import {CartContext} from "@/components/CartContext";
 
 const ProductWrapper = styled.div`
   
@@ -59,7 +59,7 @@ const Price = styled.div`
 `;
 
 export default function ProductBox({_id,title,description,price,images}) {
-//   const {addProduct} = useContext(CartContext);
+  const {addProduct} = useContext(CartContext);
   const url = '/product/'+_id;
   return (
     <ProductWrapper>
