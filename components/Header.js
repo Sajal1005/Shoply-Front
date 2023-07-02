@@ -8,6 +8,10 @@ const StyledHeader = styled.header`
 const Logo = styled(Link)`
     color: #fff;
     text-decoration: none;
+    font-weight: bold;
+    font-size: 1.4rem;
+    position: relative;
+    z-index: 3;
 `;
 const Wrapper = styled.div`
     display: flex;
@@ -15,13 +19,30 @@ const Wrapper = styled.div`
     padding: 20px 0;
 `;
 const StyledNav = styled.nav`
-    display:flex;
-    gap: 15px;
+    gap: 45px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 70px 20px 20px;
+    background-color: #222;
+    @media screen and (min-width: 768px) {
+    display: flex;
+    position: static;
+    padding: 0;
 `;
 const NavLink = styled(Link)`
-    color: #aaa;
-    text-decoration: none;
+    display: block;
+    color:#aaa;
+    text-decoration:none;
+    padding: 10px 0;
+    @media screen and (min-width: 768px) {
+    padding:0;
+    }
 `;
+
+
 
 
 export default function Header(){
