@@ -104,10 +104,21 @@ export default function CartPage() {
     removeProduct(id);
   }
 
+  
   let total = 0;
   for (const productId of cartProducts) {
     const price = products.find(p => p._id === productId)?.price || 0;
     total += price;
+  }
+
+  async function goToPayment() {
+    const response = await axios.post('/api/checkout', {
+      name,email,city,postalCode,streetAddress,country,
+      cartProducts,
+    });
+    if (response.data.url) {
+      window.location = response.data.url;
+    }
   }
 
   if (isSuccess) {
@@ -211,7 +222,8 @@ export default function CartPage() {
                      value={country}
                      name="country"
                      onChange={ev => setCountry(ev.target.value)}/>
-              <Button black block>
+              <Button black block
+                      onClick={goToPayment}>
                 Continue to payment
               </Button>
             </Box>
